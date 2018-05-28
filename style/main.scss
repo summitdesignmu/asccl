@@ -1,0 +1,312 @@
+//Variables
+$bg: #fff;
+$darker: #292929;
+$mainColor: #000;
+//@import url('https://fonts.googleapis.com/css?family=Montserrat|Quattrocento');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600|Roboto+Slab:700');
+//mixins
+@mixin flexColumn {
+    display: flex;
+    -o-display: flex;
+    flex-direction: column;
+}
+
+@mixin flexRow {
+    display: flex;
+    -o-display: flex;
+    flex-direction: row;
+}
+
+@mixin transition {
+    transition: .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+body {
+    padding: 0;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+    color: $mainColor;
+    background: $bg;
+}
+
+body,
+html {
+    scroll-behavior: smooth
+}
+
+
+
+ul {
+    list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Roboto Slab';
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+
+* {
+    &:focus {
+        outline: none;
+    }
+}
+
+#nav {
+    background: $bg;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    //right: -1000px;
+    height: 100%;
+    z-index: 999;
+    @include flexRow();
+    align-items: center;
+    @include transition();
+    .logo{
+        position: absolute;
+        top: 0;
+        left: 0;
+        align-self: center;
+        img{
+            margin: 1em ;
+            width: 100px;
+
+        }
+    }
+    .links{
+        flex: 1;
+        a{
+            display:block;
+            font-size: 4em;
+            margin: 6px 1em;
+            color:  $mainColor;
+            position: relative;
+            z-index: 999;
+            letter-spacing: -2px;
+            @include transition();
+            &:before{
+                content: '';
+                width: 65%;
+                height: 20%; 
+                background: $mainColor;
+                position: absolute;
+                bottom: 0;
+                @include transition();
+                z-index: 12;
+
+            }
+            &:hover{
+                transform: translateX(-20px);
+                &:before{
+                    transform: translateX(50px);
+                }
+            }
+        }
+    }
+    .contact-details{
+       flex: 2;
+        height: 100%;
+        @include flexColumn();
+        align-items: center;
+        justify-content: center;
+        h1{
+            text-align: right;
+            margin: 0;
+            align-self: flex-end;
+            margin: 0 1em;
+            font-size: 5rem;
+            padding: 0;
+        }
+        ul{
+            li{
+                text-align: left;
+                span{
+                    font-family: 'Roboto Slab';
+                    font-size: 1.32em;
+                    background: grey;
+                    text-transform: uppercase;
+                }
+                line-height: 1.65;
+                font-size: 1.4rem;
+            }
+        }
+    }
+    .close
+    {
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+        text-transform: uppercase;
+        padding: 1em;
+        
+    }
+}
+
+header {
+    position: fixed;
+    @include flexRow();
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    @include transition;
+    &:hover{
+        opacity: 1;
+    }
+    .logo {
+        a {
+            margin: 0 1em;
+            display: block;
+            @include transition();
+            &:hover{
+                transform: scale(1.05);
+            }
+            img {
+                width: 75px;
+            }
+        }
+    }
+    .menu {
+        margin: 0 1em;
+        .button {
+            display: inline-block;
+            cursor: pointer;
+            z-index: 999;
+            @include transition();
+            .bar1,
+            .bar2,
+            .bar3 {
+                width: 35px;
+                height: 5px;
+                background: $mainColor;
+                margin: 6px 0;
+            }
+            &:hover {
+                * {
+                    color: $mainColor;
+                }
+            }
+        }
+    }
+}
+
+#jumbo {
+    margin-top: 0;
+    @include flexColumn();
+    min-height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+section {
+    @include flexColumn();
+    min-height: 100vh;
+}
+@media screen and (min-width: 320px){
+
+    #nav {
+        background: lightgray;
+        opacity: 0;
+        visibility: hidden;
+        position: fixed;
+        width: 100%;
+        top: 0; //right: -1000px;
+        height: 100%;
+        z-index: 999;
+        @include flexColumn();
+        align-items: flex-start;
+        @include transition();
+        .logo {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            align-self: center;
+            img {
+                margin: 1em;
+                width: 100px;
+            }
+        }
+        .links {
+            a {
+                display: block;
+                font-size: 3em;
+                margin: 6px 1em;
+                color: $mainColor;
+                position: relative;
+                z-index: 999;
+                letter-spacing: -2px;
+                @include transition();
+                &:before {
+                    content: '';
+                    width: 65%;
+                    height: 20%;
+                    background: $mainColor;
+                    position: absolute;
+                    bottom: 0;
+                    @include transition();
+                    z-index: 12;
+                }
+                &:hover {
+                    transform: translateX(-10px);
+                    &:before {
+                        transform: translateX(20px);
+                    }
+                }
+            }
+        }
+        .contact-details {
+            @include flexColumn();
+            align-items: center;
+            justify-content: flex-start;
+            h1 {
+                text-align: left;
+                margin: 0;
+                align-self: flex-end;
+                font-size: 3.2em;
+                padding: 0;
+            }
+            ul {
+                li {
+                    text-align: left;
+                    span {
+                        font-family: 'Roboto Slab';
+                        font-size: 1em;
+                        background: grey;
+                        text-transform: uppercase;
+                    }
+                    line-height: 1.1;
+                }
+            }
+        }
+        .close {
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+            text-transform: uppercase;
+            padding: 1em;
+        }
+    }
+
+
+}
+
+
+
+

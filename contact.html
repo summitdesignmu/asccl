@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vastav Agency Co. Ltd | Contact </title>
+    <link rel="stylesheet" href="style/normalize.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+</head>
+
+<body>
+    <header>
+        <div class="brand">
+            <a href="index.html">Vastav Agency Co. Ltd</a>
+        </div>
+        <div class="menu-bar">
+            <button>
+                <i class="fas fa-bars fa-2x" onclick="openMenu()"></i>
+            </button>
+        </div>
+
+    </header>
+    <nav class="responsive-nav-container" id="nav">
+        <div class="responsive-nav">
+            <li>
+
+                <span onclick="closeMenu()">
+                    <i class="fas fa-times"></i>
+                </span>
+            </li>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="products.html">Products</a>
+            </li>
+            <li>
+                <a href="gallery.html">Gallery</a>
+            </li>
+            <li>
+                <a href="about.html">About</a>
+            </li>
+            <li>
+                <a href="testimonials.html">Testimonials</a>
+            </li>
+            <li>
+                <a href="partners.html">Partners</a>
+            </li>
+        </div>
+    </nav>
+
+
+    <div id="contact">
+
+        <div class="message">
+            <h2 class="titles">
+                Contact
+            </h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, in!
+            </p>
+        </div>
+
+
+
+        <form action="#" id="form">
+
+            <label for="name">Full Name: </label>
+            <input type="text" id="name">
+            <label for="email">Email: </label>
+            <input type="email" id="email">
+            <label for="message">Your Message </label>
+            <textarea id="message" cols="30" rows="10"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div id="maps-container">
+            <h2 class="titles">
+                Location
+            </h2>
+            <div id="maps"></div>
+        </div>
+    </div>
+    <footer>
+        2018 &copy; Vastav Agency Co Ltd | Designed by Feiz Chowtee
+    </footer>
+
+
+    <script src="script/app.js"></script>
+</body>
+
+</html>
